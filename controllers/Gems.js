@@ -18,9 +18,7 @@ const cloudinary = require('cloudinary').v2
 const fs = require('fs')
 
 cloudinary.config({
-   cloud_name: 'df01nufy5',
-   api_key: '113775894668294',
-   api_secret: 'nIGQ2cn4a1EUHLeiTMqrfAmrrR0'
+  
 })
 
 function getGems(req, res){
