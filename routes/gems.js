@@ -8,7 +8,7 @@ router.get('/getGems', VerifyToken, GemsController.getGems)
 
 router.post('/getGems', VerifyToken, GemsController.getGems)
 
-router.post('/addGem', GemsController.getGems)
+router.post('/addGem', GemsController.createGem)
 
 router.post('/getGemOne', VerifyToken,  GemsController.getGems)
 
