@@ -1,3 +1,4 @@
+//Esto es el VerifyToken esto se usa para la verificacion y el jwt es como la seguridad de la api
 const jwt = require('jsonwebtoken')
 
 function verifyToken(req, res, next){

@@ -1,5 +1,6 @@
-'use strict'
+//Esto nos permite conectarnos a la base de datos poniendo las "credenciales" de mongoDB 
 
+'use strict'
 const mongoose = require('mongoose')
 const app = require('./app')
 const port = process.env.PORT || 3000

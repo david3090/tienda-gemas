@@ -1,20 +1,18 @@
+//Es la variable que sube los modulos para exportar 
 module.exports = {
     LoginUser,
     LogoutUser,
     GetCurrentUser,
     signInUser
 }
-
+//estas son las constantes que van a utilizar las funciones 
 const User = require('../models/User')
 
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
 const sha256 = require('sha256')
-
-
-
 const verifyToken = require('../Middleware/VerifyToken')
-
+//Esta funcion permite iniciar seccion con un usuario ya creado
 function LoginUser(req, res){
       User.findOne({username: req.body.username}).then((user)=>{
           if(!user) return res.status(404).send('No server found')
@@ -23,7 +21,7 @@ function LoginUser(req, res){
     
           if(!passwordIsvalid) return res.status(401).send({auth: false, message: 'Error password', token: null})
           
-     
+     //con el let token hace que se autentifiquen los usuarios
           let token = jwt.sign({id: user.id}, process.env.JWT_SECRET,{
               expiresIn: 864000
           })
@@ -51,7 +49,7 @@ function GetCurrentUser(req, res){
     })
     .catch((err)=> res.status(500).send({err}))
 }
-
+//Con esta funcion permite crear un usuario 
 function signInUser(req,res){
    const user = new User ({
      email: req.body.email,
